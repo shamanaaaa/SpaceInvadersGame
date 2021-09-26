@@ -4,8 +4,10 @@ import pygame
 class Game(pygame.sprite.Sprite):
     def __init__(self, screen):
         self.screen = screen
-        pygame.sprite.Sprite.__init__(self)  # call Sprite initializer
-        self.ship_position = [512, 512]
+        pygame.sprite.Sprite.__init__(self)
+        self.ship_position = [512, 600]
+        self.shot_start_x = 0
+        self.shot_start_y = 0
 
     def background(self):
         self.image = pygame.image.load('images/background.jpg').convert_alpha()
@@ -21,11 +23,4 @@ class Game(pygame.sprite.Sprite):
         self.ship_rect.left, self.ship_rect.top = self.ship_position
         self.screen.blit(self.ship, self.ship_rect)
 
-    def space_ship_gun(self):
-        self.gun = pygame.image.load('images/spaceship.png').convert_alpha()
-        self.gun = pygame.transform.scale(self.gun, (5, 40))
-        self.gun_rect = self.gun.get_rect()
 
-    def shot(self):
-        self.gun_rect.left, self.gun_rect.top = self.ship_position
-        self.screen.blit(self.gun, self.gun_rect)
