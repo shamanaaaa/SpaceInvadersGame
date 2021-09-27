@@ -23,4 +23,10 @@ class Game(pygame.sprite.Sprite):
         self.ship_rect.left, self.ship_rect.top = self.ship_position
         self.screen.blit(self.ship, self.ship_rect)
 
+    def reset_game(self):
+        self.ship_position = [512, 600]
+        self.shot_start_x = 0
+        self.shot_start_y = 0
+
+
 
